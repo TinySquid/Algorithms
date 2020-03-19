@@ -4,7 +4,7 @@ import sys
 def eating_cookies(n, cache={0: 1, 1: 1, 2: 2}):
     """
     n - int - Number of cookies in the jar
-    cache - list - memoization of cookie methods already calculated
+    cache - dict - memoization of cookie methods already calculated
     """
 
     if n in cache:
