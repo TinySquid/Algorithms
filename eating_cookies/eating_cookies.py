@@ -1,27 +1,17 @@
 import sys
 
 
-def eating_cookies(n, cache={}):
+def eating_cookies(n, cache={0: 1, 1: 1, 2: 2}):
     """
     n - int - Number of cookies in the jar
     cache - list - memoization of cookie methods already calculated
     """
 
-    count = 0
-
-    if n <= 1:
-        return 1
-    elif n == 2:
-        return 2
+    if n in cache:
+        return cache[n]
     else:
-        if n in cache:
-            return cache[n]
-        else:
-            cache[n] = (
-                eating_cookies(n - 3) + eating_cookies(n - 2) + eating_cookies(n - 1)
-            )
-            return cache[n]
-    return count
+        cache[n] = eating_cookies(n - 3) + eating_cookies(n - 2) + eating_cookies(n - 1)
+        return cache[n]
 
 
 if __name__ == "__main__":
