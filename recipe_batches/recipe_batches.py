@@ -13,7 +13,7 @@ def recipe_batches(recipe, ingredients):
     """
 
     # Missing ingredient case
-    if len(recipe.keys()) != len(ingredients.keys()):
+    if len(recipe) != len(ingredients):
         return 0
 
     max_batch = float("inf")
